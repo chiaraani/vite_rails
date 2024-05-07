@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "dev": "vite --host",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "format": "prettier --write src/"
+  },
+  "devDependencies": {
+    "vite": "^5.2.11",
+    "vite-plugin-ruby": "^5.0.0"
+  }
+}

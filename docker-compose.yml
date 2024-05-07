@@ -18,8 +18,10 @@ services:
       VITE_RUBY_HOST: frontend
       VITE_RUBY_PORT: 5173
   frontend:
-    image: node:20-bookworm
-    command: npm run dev
+    image: vite
+    build:
+      context: .
+      dockerfile: vite.Dockerfile
     environment:
       DEBUG: "*vite*"
       RAILS_ENV: development
