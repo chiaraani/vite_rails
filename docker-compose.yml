@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  backend:
+    image: rails-monolith
+    build:
+      context: .
+      dockerfile: development.Dockerfile
+    depends_on:
+      - frontend
+      - db
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    env_file: .env.development
+    environment:
+      RAILS_ENV: development
+      VITE_RUBY_HOST: frontend
+      VITE_RUBY_PORT: 5173
+  frontend:
+    image: node:20-bookworm
+    command: npm run dev
+    environment:
+      DEBUG: "*vite*"
+      RAILS_ENV: development
+      VITE_RUBY_HOST: 0.0.0.0
+      VITE_RUBY_PORT: 5173
+    ports:
+      - 5173:5173
+    volumes:
+      - .:/app
+  db:
+    image: postgres
+    env_file: .env.development
