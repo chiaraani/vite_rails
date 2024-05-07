@@ -13,20 +13,12 @@ services:
     ports:
       - 3000:3000
     env_file: .env.development
-    environment:
-      RAILS_ENV: development
-      VITE_RUBY_HOST: frontend
-      VITE_RUBY_PORT: 5173
   frontend:
     image: vite
     build:
       context: .
       dockerfile: vite.Dockerfile
-    environment:
-      DEBUG: "*vite*"
-      RAILS_ENV: development
-      VITE_RUBY_HOST: 0.0.0.0
-      VITE_RUBY_PORT: 5173
+    env_file: .env.development
     ports:
       - 5173:5173
     volumes:
