@@ -7,7 +7,7 @@ services:
       dockerfile: development.Dockerfile
     depends_on:
       - frontend
-      - db
+      # - db
     volumes:
       - .:/app
     ports:
@@ -23,6 +23,6 @@ services:
       - 5173:5173
     volumes:
       - .:/app
-  db:
-    image: postgres
-    env_file: .env.development
+  # db:
+  #   image: postgres
+  #   env_file: .env.development
