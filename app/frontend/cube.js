@@ -18,8 +18,9 @@ const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
 const directionalLight = new THREE.DirectionalLight()
+directionalLight.position.set(5, 5, 5)
 scene.add(directionalLight)
-const ambientLight = new THREE.AmbientLight
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.1)
 scene.add(ambientLight)
 
 camera.position.z = 5;
