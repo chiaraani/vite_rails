@@ -13,9 +13,14 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0x00fff0 });
+const material = new THREE.MeshStandardMaterial({ color: 0x00fff0 });
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
+
+const directionalLight = new THREE.DirectionalLight()
+scene.add(directionalLight)
+const ambientLight = new THREE.AmbientLight
+scene.add(ambientLight)
 
 camera.position.z = 5;
 
